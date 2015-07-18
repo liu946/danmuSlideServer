@@ -1,0 +1,9 @@
+#fream{
+  top: 0px;
+  left: 0px;
+  border: 0px !important;
+}
+body{
+  margin: 0px;
+  overflow: hidden;
+}
