@@ -1,0 +1,14 @@
+{
+  "name": "DanmuSlide",
+  "version": "0.0.1",
+  "main": "index.js",
+  "description": "[Danmu Slide] A app to show Slide with Danmu.",
+  "repository": {},
+  "devDependencies": {},
+  "dependencies": {
+    "express": "^4.10.2"
+  },
+  "engine": {
+    "node": ">=0.12.0"
+  }
+}
