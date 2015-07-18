@@ -1,0 +1,35 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="utf-8")
+    meta(name="viewport", content="width=1024")
+    meta(name="apple-mobile-web-app-capable", content="yes")
+    meta(name="author", content="Michael Liu")
+    title @yield("title") @yield("author") | By DMSlide 
+    meta(name="description", content="impress.js is a presentation tool based on the power of CSS3 transforms and transitions in modern browsers and inspired by the idea behind prezi.com.")
+    // <link href="http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic" rel="stylesheet" />
+    link(rel="stylesheet", href="/css/googlefont.css")
+    link(rel="stylesheet", href="/css/impress-demo.css")
+    link(rel="shortcut icon", href="favicon.png")
+    link(rel="apple-touch-icon", href="apple-touch-icon.png")
+  body.impress-not-supported
+    .fallback-message
+      p
+        | Your browser
+        b doesn"t support the features required
+        | by impress.js, so you are presented with a simplified version of this presentation.
+      p
+        | For the best experience please use the latest
+        b Chrome
+        | ,
+        b Safari
+        | or
+        b Firefox
+        | browser.
+    #impress
+      // 此处调用内容
+      block content
+      // 调用内容结束
+    script(src="/js/impress.js")
+    script
+      | impress().init();

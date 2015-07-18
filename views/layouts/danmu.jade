@@ -1,0 +1,36 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="utf-8")
+    meta(name="viewport", content="width=1024")
+    meta(name="apple-mobile-web-app-capable", content="yes")
+    title DanMuTest
+    meta(name="description", content="This is a Slide-Show System.")
+    meta(name="author", content="Micheal Liu")
+    // <link href="http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic" rel="stylesheet" />
+    link(rel="stylesheet", href="/css/googlefont.css")
+    link(rel="stylesheet", href="/css/danmu.css")
+    link(rel="shortcut icon", href="L.ico")
+    link(rel="apple-touch-icon", href="L.ico")
+    script(type="text/javascript", src="/js/jquery-1.11.1.min.js")
+    script(type="text/javascript", src="/js/jquery.danmu.min.js")
+
+  body.impress-not-supported
+    //
+           <button id="danmuconfigbar" style='height: 20px;width: 65px;'>弹目配置</button>
+       
+    iframe#fream(src="../slide/"+slidefilename, style="width: 100%; height: 100%;")
+    // 全屏幕弹幕设置
+    #danmuconfig(style="display: none; position : absolute;top: 0;left: 0px; width: 1000px;height: 20px; z-index: 20;background: red;")
+      | &#24377;&#24149;&#37197;&#32622;&#160;&#160; &#36879;&#26126;&#24230;
+      input#alphabar(type="range", value="90")
+      span#alphatext 90%
+    #danmu
+    script(type="text/javascript",src="/js/danmu.js")
+      
+    // end 全屏幕弹幕设置
+  //
+     
+  // 感谢
+  // 弹幕代码提供
+  // jquery.danmu.js (//github.com/chiruom/danmu/) - Licensed under the MIT license
