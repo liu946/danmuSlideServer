@@ -2,9 +2,16 @@ var app = require('express')();
 var http = require('http').Server(app);
 
 app.get('/', function(req, res){
-  res.send('<h1>Hello world</h1>');
+  res.sendFile(__dirname + '/pages/')
 });
 
-http.listen(3000, function(){
-  console.log('listening on *:3000');
-});
+app.use(express.static('public'));
+
+var server = app.listen(3000, function () {
+
+  var host = server.address().address
+  var port = server.address().port
+
+  console.log('Example app listening at http://%s:%s', host, port)
+
+})
