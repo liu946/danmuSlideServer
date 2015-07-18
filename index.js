@@ -25,13 +25,26 @@ app.get('/slide/:id', function (req, res, next) {
 
 // socket io
 var status = {'onlinenum':0,'danmunum':0}
-io.on('connection',function(socket){
-	console.log('[user connected]:'+(status['onlinenum']++));
+
+io.on('connection', function(socket){
+  // 上线
+  console.log('A user connected: usernum('+(++status['onlinenum'])+') ');
+  // 注销
+  socket.on('disconnect', function(){
+    console.log('A user disconnected: usernum('+(--status['onlinenum'])+') ');
+  });
+  // 客户端上传弹幕-- 用于发射
+  socket.on('updanmu',function(msg) {
+  	console.log('A danmu received('+(++status['danmunum'])+'):'+msg);
+  	// 弹幕广播
+  	socket.emit('broadcastdanmu',msg);
+
+  })
 });
 
 
 // server
-var server = app.listen(3000, function () {
+var server = http.listen(3000, function () {
 
   var host = server.address().address
   var port = server.address().port

@@ -1,3 +1,4 @@
+      var socket = io();
 $(function () {
       // body...
       var winWidth,winHeight;
@@ -37,7 +38,7 @@ $(function () {
             }
       });
       
-      var a_danmu={ "text":"2333333" , "color":"green" ,"size":"1","position":"0","time":60 ,"isnew":" "};
+      var a_danmu={ "text":"2333333" , "color":"green" ,"size":"1","position":"0","time":60};
       var mydanmuss={ 1:[ { "text":"hahahaha" , "color":"red" ,"size":"0","position":"0"},
       { "text":"233333" , "color":"red" ,"size":"0","position":"2"} ],
       3:[ { "text":"poi" , "color":"red" ,"size":"1","position":"1"},
@@ -60,4 +61,11 @@ $(function () {
       });
       $('#danmu').danmu('danmu_start');
       $('#danmu').danmu("add_danmu",a_danmu);
+      // socket io
+
+      socket.on('broadcastdanmu', function(msg){
+            console.log('get danmu'+msg);
+            msg['time'] = $('#danmu').data("nowtime");
+            $('#danmu').danmu("add_danmu",msg);
+      });
 })
