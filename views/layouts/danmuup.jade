@@ -1,0 +1,32 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="utf-8")
+    meta(name="viewport", content="width=1024")
+    meta(name="apple-mobile-web-app-capable", content="yes")
+    script(type="text/javascript", src="/js/jquery-1.11.1.min.js")
+    script(type="text/javascript", src="/socket.io/socket.io.js")
+    script(type="text/javascript", src="/js/danmuclient.js")
+    link(rel="stylesheet", href="/css/danmuup.css")
+
+  body
+    form#form
+      // { "text":"2333333" , "color":"green" ,"size":"1","position":"0","time":60};
+      | 内容
+      input(type="text",name="text")
+      select(name="color")
+        each color in colors
+          option(value=color,style={background:color})= color
+            
+      | 颜色
+      select(name="size")
+        each size in sizes
+          option(value=size['num'])= size['name'] 
+      | 位置
+      select(name="position")
+        each position in positions
+          option(value=position['num'])= position['name']
+
+    button#submit
+      | 发射
+

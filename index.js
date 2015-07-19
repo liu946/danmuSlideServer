@@ -2,7 +2,9 @@ var express = require('express')
 var app = express()
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
-
+var danmucolors = ['red','orange','blue','white','black']
+var danmusizes = [{'num':0,'name':'小字'},{'num':0,'name':'大字'}]
+var danmuposition = [{'num':0,'name':'飞行'},{'num':1,'name':'顶部'},{'num':2,'name':'底部'}]
 // config
 app.locals.title = 'Danmu Slide Show';
 app.locals.email = 'liuyang570926881@gmail.com';
@@ -24,7 +26,7 @@ app.get('/slide/:id', function (req, res, next) {
 });
 app.get('/danmuup',function (req, res, next) {
 	console.log('A Updanmu client page requested.');
-	res.render('layouts/danmuup')
+	res.render('layouts/danmuup',{ colors :danmucolors, sizes :danmusizes, positions :danmuposition})
 })
 // socket io
 var status = {'onlinenum':0,'danmunum':0}
@@ -40,7 +42,7 @@ io.on('connection', function(socket){
   socket.on('updanmu',function(msg) {
   	console.log('A danmu received('+(++status['danmunum'])+'):'+msg);
   	// 弹幕广播
-  	socket.emit('broadcastdanmu',msg);
+  	io.sockets.emit('broadcastdanmu',msg);
 
   })
 });

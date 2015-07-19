@@ -53,7 +53,7 @@ $(function () {
             width: winWidth, //区域的宽度
             zindex :100, //div的css样式zindex
             speed:30000, //弹幕速度，飞过区域的毫秒数
-            sumtime:900 , //弹幕运行总时间
+            sumtime:60*60 *10 , //弹幕运行总时间
             danmuss:mydanmuss, //danmuss对象，运行时的弹幕内容
             default_font_color:"#000000", //弹幕默认字体颜色
             font_size_small:24, //小号弹幕的字体大小,注意此属性值只能是整数
