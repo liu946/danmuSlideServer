@@ -2,3 +2,9 @@ doctype html
 html(lang="en")
   head
     meta(charset="utf-8")
+  body
+    ul
+      each slide in slides
+        li
+          a(href='slide/'+slide['tplfile'])= slide['date']+ "  "+ slide['slidename']
+

@@ -12,7 +12,7 @@ app.use(express.static('public'));
 
 // router
 app.get('/', function(req, res){
-  res.render('slidelist',{slides:['2015-07-16-example']});
+  res.render('slidelist',{slides:[{'tplfile':'2015-07-16-example','date':'2015-07-16','slidename':'示例'}]});
 });
 app.get('/danmu/:id', function (req, res, next) {
   console.log('Request page [danmu] :', req.params.id);
@@ -22,7 +22,10 @@ app.get('/slide/:id', function (req, res, next) {
   console.log('Request page [slide] :', req.params.id);
   res.render('pages/'+req.params.id);
 });
-
+app.get('/danmuup',function (req, res, next) {
+	console.log('A Updanmu client page requested.');
+	res.render('layouts/danmuup')
+})
 // socket io
 var status = {'onlinenum':0,'danmunum':0}
 
