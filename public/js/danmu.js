@@ -1,7 +1,8 @@
-      var socket = io();
-$(function () {
-      // body...
-      var winWidth,winHeight;
+// 全局量
+var socket = io();// socket.io obj
+var canfocus = true;// auto focus on slide ifream when not focus on danmu config
+var winWidth,winHeight;
+function initElementSize () {
       if (window.innerWidth)
             winWidth = window.innerWidth;
       else if ((document.body) && (document.body.clientWidth))
@@ -11,22 +12,23 @@ $(function () {
             winHeight = window.innerHeight;
       else if ((document.body) && (document.body.clientHeight))
             winHeight = document.body.clientHeight;
-      var canfocus = true;
-      // body...
       $("#fream").css("height",winHeight);
       $("#danmuconfig").css("width",winWidth);
-      $("#fream").focus();
-      function foo (argument) {
-            if (canfocus)$("#fream").focus();
-            setTimeout(foo,1500);
-      };
-      foo();
-
-      $("#alphabar").change(function (argument) {
-            // body...
+}
+function focusOnSlide() {
+      if (canfocus)$("#fream").focus();
+      setTimeout(focusOnSlide,1500);
+};
+$(function () {
+      initElementSize();
+      focusOnSlide();
+      // banding danmu functions
+      // change alpha
+      $("#alphabar").change(function () {
             $("#alphatext").html($(this).val()+"%");
             $("#danmu").data("opacity",($(this).val())/100.0);
       })
+      // danmu show config bar
       $(document).mousemove(function (e) {
             if(e.pageY>40){
                   $("#fream").focus();
