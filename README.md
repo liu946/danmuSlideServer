@@ -49,7 +49,10 @@ http://<您PC的IP>:3000/danmuup
 
 ## feature
 1. 加入markdown编辑器，自动生成slide jade模板
-2. 加入
+2. 加入网页嵌入功能，嵌入所有可展示网页
+3. 美化选择页面
+4. 登陆验证
+5. 弹幕保存(file/databases)
 
 ## license
 MIT
