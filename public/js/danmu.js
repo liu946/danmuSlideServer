@@ -40,7 +40,7 @@ $(function () {
             }
       });
       
-      var a_danmu={ "text":"2333333" , "color":"green" ,"size":"1","position":"0","time":60};
+      var a_danmu={ "text":"欢迎使用弹幕系统 - by Micheal Liu" , "color":"green" ,"size":"1","position":"0","time":60};
       var mydanmuss={ 1:[ { "text":"hahahaha" , "color":"red" ,"size":"0","position":"0"},
       { "text":"233333" , "color":"red" ,"size":"0","position":"2"} ],
       3:[ { "text":"poi" , "color":"red" ,"size":"1","position":"1"},
@@ -53,8 +53,7 @@ $(function () {
             width: winWidth, //区域的宽度
             zindex :100, //div的css样式zindex
             speed:30000, //弹幕速度，飞过区域的毫秒数
-            sumtime:60*60 *10 , //弹幕运行总时间
-            danmuss:mydanmuss, //danmuss对象，运行时的弹幕内容
+            sumtime:60*60*10 , //弹幕运行总时间
             default_font_color:"#000000", //弹幕默认字体颜色
             font_size_small:24, //小号弹幕的字体大小,注意此属性值只能是整数
             font_size_big:32, //大号弹幕的字体大小

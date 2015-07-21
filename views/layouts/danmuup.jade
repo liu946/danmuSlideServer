@@ -2,31 +2,51 @@ doctype html
 html(lang="en")
   head
     meta(charset="utf-8")
-    meta(name="viewport", content="width=1024")
     meta(name="apple-mobile-web-app-capable", content="yes")
+    meta(name="viewport", content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui")
+    meta(name="apple-mobile-web-app-capable", content="yes")
+    meta(name="apple-mobile-web-app-status-bar-style", content="black")
+    meta(name="format-detection", content="telephone=no, email=no")
+
     script(type="text/javascript", src="/js/jquery-1.11.1.min.js")
     script(type="text/javascript", src="/socket.io/socket.io.js")
+    script(type="text/javascript", src="/js/lib/zepto.min.js")
+    script(type="text/javascript", src="/js/frozen.js")
+    script(type="text/javascript", src="/js/jquery.danmu.min.js")
     script(type="text/javascript", src="/js/danmuclient.js")
     link(rel="stylesheet", href="/css/danmuup.css")
+    link(rel="stylesheet", href="/css/frozen.css")
 
   body
-    form#form
-      // { "text":"2333333" , "color":"green" ,"size":"1","position":"0","time":60};
-      | 内容
-      input(type="text",name="text")
-      select(name="color")
-        each color in colors
-          option(value=color,style={background:color})= color
-            
-      | 颜色
-      select(name="size")
-        each size in sizes
-          option(value=size['num'])= size['name'] 
-      | 位置
-      select(name="position")
-        each position in positions
-          option(value=position['num'])= position['name']
+    #msgsuccess.ui-poptips(style={display:'none'})
+      .ui-poptips-cnt
+        i
+        | 弹幕发送成功 !
+    #danmu
+    section.ui-placehold-wrap(style={background: '#eee'})
+    .ui-form.ui-border-t
+      form#form
+        // { "text":"2333333" , "color":"green" ,"size":"1","position":"0","time":60};
+        .ui-form-item.ui-border-b.ui-form-item-textarea.ui-form-item-pure
+          textarea(name="text",placeholder='弹幕内容')
+        .ui-form-item.ui-form-item-radio.ui-border-b
+          each color in colors
+            label.ui-radio(for="radio")
+              input(type="radio", name="color",value=color['color'],style={background:color},checked=color.default)
+            span(style={color:color['color']})= color['name']
 
-    button#submit
-      | 发射
+        .ui-form-item.ui-form-item-radio.ui-border-b
+          each size in sizes
+            label.ui-radio(for="radio")
+              input(type="radio",value=size['num'],name="size",checked=size.default)
+              span= size['name']
+        .ui-form-item.ui-form-item-radio.ui-border-b
+          each position in positions
+            label.ui-radio(for="radio")
+              input(type="radio",name='position',value=position['num'],checked=position.default)
+              span= position['name']
+
+      #submit.ui-btn-wrap
+        button.ui-btn-lg.ui-btn-primary
+          | 发射
 

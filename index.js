@@ -2,9 +2,9 @@ var express = require('express')
 var app = express()
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
-var danmucolors = ['red','orange','blue','white','black']
-var danmusizes = [{'num':0,'name':'小字'},{'num':0,'name':'大字'}]
-var danmuposition = [{'num':0,'name':'飞行'},{'num':1,'name':'顶部'},{'num':2,'name':'底部'}]
+var danmucolors = [{'color':'red','name':'红','default':true},{'color':'orange','name':'橙'},{'color':'blue','name':'蓝'},{'color':'white','name':'白'},{'color':'black','name':'黑'}]
+var danmusizes = [{'num':0,'name':'小字'},{'num':1,'name':'大字','default':true}]
+var danmuposition = [{'num':0,'name':'飞行','default':true},{'num':1,'name':'顶部'},{'num':2,'name':'底部'}]
 // config
 app.locals.title = 'Danmu Slide Show';
 app.locals.email = 'liuyang570926881@gmail.com';

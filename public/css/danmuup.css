@@ -2,3 +2,6 @@ select{
 	min-width: 80px;
 	min-height: 20px;
 }
+body{
+	margin: 0px;
+}
