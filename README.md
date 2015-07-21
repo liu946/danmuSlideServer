@@ -4,7 +4,7 @@
 
 ## slide展示
 
-[图片展示](https://raw.githubusercontent.com/liu946/danmuSlideServer/master/docs/show1.png)
+![图片展示](https://raw.githubusercontent.com/liu946/danmuSlideServer/master/docs/show1.png)
 
 
 ## 移动端弹幕发射器
